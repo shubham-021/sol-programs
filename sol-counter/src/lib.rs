@@ -40,7 +40,7 @@ pub fn counter_contract(
         }
     }
 
-    counter_data.serialize(&mut *acc.data.borrow_mut());
+    counter_data.serialize(&mut *acc.data.borrow_mut())?;
     msg!("Contract succeeded");
 
     Ok(())
