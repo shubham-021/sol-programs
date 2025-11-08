@@ -3,9 +3,9 @@ import { Connection, Keypair, LAMPORTS_PER_SOL, PublicKey, SystemProgram, Transa
 import { COUNTER_SIZE } from "./types";
 
 const connection = new Connection("http://127.0.0.1:8899");
-const adminAccount = Keypair.generate();
-const dataAccount = Keypair.generate();
-const programId = new PublicKey("GDahDojimVMyDaFeJArcHSjJk81iZ1Hu6Nz74SVw9554");
+export const adminAccount = Keypair.generate();
+export const dataAccount = Keypair.generate();
+export const programId = new PublicKey("GDahDojimVMyDaFeJArcHSjJk81iZ1Hu6Nz74SVw9554");
 
 jest.setTimeout(60_000);
 
