@@ -67,7 +67,7 @@ describe("Cal tests",()=>{
             keys: [{pubkey:dataAccount.publicKey , isSigner: false ,isWritable:true}],
             data: Buffer.from([0])
             // data: Buffer.from(ixInit)
-            // didnt worked , gives empty buffer --> debug
+            // didnt work , gives empty buffer --> debug
         });
 
         const tx = new Transaction().add(instruction);
