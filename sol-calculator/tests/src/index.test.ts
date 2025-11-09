@@ -46,6 +46,11 @@ describe("Cal tests",()=>{
         tx.sign(userAccount,dataAccount);
         svm.sendTransaction(tx);
         svm.expireBlockhash();
+
+        // If you keep reusing the same blockhash for multiple transactions in LiteSVM:
+        // All those transactions might get treated as duplicates (replays).
+        // LiteSVM could skip them, thinking they’re the same transaction already processed.
+        // You might see confusing test results (e.g., state not changing, but no error).
     });
 
     // as per contract
