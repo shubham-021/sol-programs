@@ -35,8 +35,8 @@ fn process_instruction(
     let mut iter = accounts.iter();
     let data_account = next_account_info(&mut iter)?;
 
-    if !data_account.is_signer {
-        return Err(ProgramError::MissingRequiredSignature);
+    if data_account.owner != program_id {
+        return Err(ProgramError::IncorrectProgramId);
     }
 
     let mut counter_state = CounterState::try_from_slice(&data_account.data.borrow())?;
