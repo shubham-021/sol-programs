@@ -44,6 +44,7 @@ fn process_instruction(
     match instruction {
         Instruction::Init => counter_state.count = 1,
         Instruction::Double => counter_state.count = counter_state.count.saturating_mul(2),
+        // Multiply by 2, but if it overflows, clamp it to the maximum possible value instead of wrapping around or panicking.
         Instruction::Half => counter_state.count /= 2,
         Instruction::Add { amount } => counter_state.count = counter_state.count.saturating_add(amount),
         Instruction::Subtract { amount } => counter_state.count = counter_state.count.saturating_sub(amount),
